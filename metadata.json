@@ -1,0 +1,8 @@
+{
+  "name": "Copy of Remix ArabNet Corpus",
+  "description": "A comprehensive web-based Arabic corpus analysis tool for keyword search, concordance, collocation, and automatic frequency analysis.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

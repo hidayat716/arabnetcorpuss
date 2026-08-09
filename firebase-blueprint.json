@@ -1,0 +1,170 @@
+{
+  "entities": {
+    "Article": {
+      "title": "Article",
+      "description": "An Arabic corpus article/news item",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the article"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the article in Indonesian"
+        },
+        "content": {
+          "type": "string",
+          "description": "Arabic text content"
+        },
+        "author": {
+          "type": "string",
+          "description": "Author of the article"
+        },
+        "category": {
+          "type": "string",
+          "description": "Category of the article"
+        },
+        "date": {
+          "type": "string",
+          "description": "Creation date of the article (YYYY-MM-DD)"
+        },
+        "wordCount": {
+          "type": "integer",
+          "description": "Number of words in the content"
+        },
+        "image": {
+          "type": "string",
+          "description": "URL of the illustration photo"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Summary translation/description in Indonesian"
+        }
+      },
+      "required": ["id", "title", "content", "author", "category", "date", "wordCount"]
+    },
+    "GalleryItem": {
+      "title": "GalleryItem",
+      "description": "A gallery item showcasing Arabic calligraphy or manuscripts",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Unique identifier of the gallery item"
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the calligraphy/manuscript"
+        },
+        "desc": {
+          "type": "string",
+          "description": "Description of the style or manuscript"
+        },
+        "image": {
+          "type": "string",
+          "description": "URL of the image"
+        }
+      },
+      "required": ["id", "title", "desc", "image"]
+    },
+    "CorpusUser": {
+      "title": "CorpusUser",
+      "description": "A user, administrator, researcher, or participant of ArabNet Corpus",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the user (e.g. email or timestamp)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of the user"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address of the user"
+        },
+        "role": {
+          "type": "string",
+          "description": "Role of the user (Peneliti, Admin, Peserta)"
+        },
+        "joinedDate": {
+          "type": "string",
+          "description": "The date when user joined (YYYY-MM-DD)"
+        }
+      },
+      "required": ["id", "name", "email", "role", "joinedDate"]
+    },
+    "Genre": {
+      "title": "Genre",
+      "description": "A customized category/genre of articles and corpus documents",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the genre"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the genre"
+        }
+      },
+      "required": ["id", "name"]
+    },
+    "TeamMember": {
+      "title": "TeamMember",
+      "description": "A member of the research and development team",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier of the team member"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the researcher/developer"
+        },
+        "role": {
+          "type": "string",
+          "description": "Role in the project"
+        },
+        "photoUrl": {
+          "type": "string",
+          "description": "Photo URL"
+        },
+        "bio": {
+          "type": "string",
+          "description": "Short bio or description"
+        }
+      },
+      "required": ["id", "name", "role"]
+    }
+  },
+  "firestore": {
+    "/articles/{articleId}": {
+      "schema": "#/entities/Article",
+      "description": "Collection of news articles about the corpus, its progress, and programs"
+    },
+    "/corpus_docs/{docId}": {
+      "schema": "#/entities/Article",
+      "description": "Collection of Arabic documents/texts for linguistic analysis"
+    },
+    "/gallery/{galleryId}": {
+      "schema": "#/entities/GalleryItem",
+      "description": "Collection of calligraphic and manuscript photos/images"
+    },
+    "/users/{userId}": {
+      "schema": "#/entities/CorpusUser",
+      "description": "Collection of registered users, administrators, and participants"
+    },
+    "/genres/{genreId}": {
+      "schema": "#/entities/Genre",
+      "description": "Collection of dynamic genres/categories created by the Administrator"
+    },
+    "/team_members/{memberId}": {
+      "schema": "#/entities/TeamMember",
+      "description": "Collection of research team members"
+    }
+  }
+}
